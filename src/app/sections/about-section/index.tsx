@@ -39,7 +39,7 @@ const AboutSection: React.FC = () => {
       id="about-section"
       flexDir="column"
       w="full"
-      pt="50px"
+      pt="110px"
       minH="100vh"
       alignItems="center"
     >
