@@ -1,8 +1,23 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Text,
+  IconButton,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  useDisclosure,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import { useRouter } from "next/router";
+import { FC, useEffect, useState } from "react";
+import { HiMenu } from "react-icons/hi";
 import { NAVIGATION } from "@kedachallange/app/config/navigation";
 import { scrollDown } from "@kedachallange/app/helper/scroll-down";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
 
 const MENU = [
   {
@@ -22,8 +37,10 @@ const MENU = [
   },
 ];
 
-const Navbar: React.FC = () => {
+const Navbar: FC = () => {
   const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -45,6 +62,7 @@ const Navbar: React.FC = () => {
   return (
     <Flex
       justifyContent="space-between"
+      alignItems="center"
       position="fixed"
       top={0}
       left={0}
@@ -76,26 +94,79 @@ const Navbar: React.FC = () => {
         </Box>
       </Box>
 
-      <Flex gap="10px">
-        {MENU.map((item) => (
+      {isMobile ? (
+        <>
+          <IconButton
+            icon={<HiMenu />}
+            aria-label="Open menu"
+            onClick={onOpen}
+            variant="outline"
+            borderColor="#14BCFB"
+            color="#14BCFB"
+          />
+          <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+            <DrawerOverlay />
+            <DrawerContent>
+              <DrawerCloseButton />
+              <DrawerHeader>
+                <Text fontWeight={600} color="#14BCFB">
+                  Home
+                </Text>
+              </DrawerHeader>
+              <DrawerBody>
+                <Flex direction="column" gap="4">
+                  {MENU.map((item) => (
+                    <Button
+                      key={item.id}
+                      variant="ghost"
+                      w="full"
+                      onClick={() => {
+                        scrollDown(item.path);
+                        onClose();
+                      }}
+                    >
+                      {item.title}
+                    </Button>
+                  ))}
+                  <Button
+                    variant="outline"
+                    borderColor="#14BCFB"
+                    color="#14BCFB"
+                    w="full"
+                    onClick={() => {
+                      router.push(NAVIGATION.AUTH.LOGIN);
+                      onClose();
+                    }}
+                  >
+                    Login
+                  </Button>
+                </Flex>
+              </DrawerBody>
+            </DrawerContent>
+          </Drawer>
+        </>
+      ) : (
+        <Flex gap="10px">
+          {MENU.map((item) => (
+            <Button
+              key={item.id}
+              variant="ghost"
+              _hover={{ bg: "#14BCFB", color: "white" }}
+              onClick={() => scrollDown(item.path)}
+            >
+              {item.title}
+            </Button>
+          ))}
           <Button
-            key={item.id}
-            variant="ghost"
-            _hover={{ bg: "#14BCFB", color: "white" }}
-            onClick={() => scrollDown(item.path)}
+            variant="outline"
+            borderColor="#14BCFB"
+            color="#14BCFB"
+            onClick={() => router.push(NAVIGATION.AUTH.LOGIN)}
           >
-            {item.title}
+            Login
           </Button>
-        ))}
-        <Button
-          variant="outline"
-          borderColor="#14BCFB"
-          color="#14BCFB"
-          onClick={() => router.push(NAVIGATION.AUTH.LOGIN)}
-        >
-          Login
-        </Button>
-      </Flex>
+        </Flex>
+      )}
     </Flex>
   );
 };

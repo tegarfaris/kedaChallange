@@ -39,17 +39,17 @@ const AboutSection: React.FC = () => {
       id="about-section"
       flexDir="column"
       w="full"
-      pt="110px"
-      minH="100vh"
+      pt={{ base: "0px", lg: "110px" }}
       alignItems="center"
     >
       <TitleHeading title="About ERP" />
 
       <Flex
-        flexDir={{ base: "column", md: "row" }}
+        alignItems={{ base: "center", lg: "start" }}
+        flexDir={{ base: "column", lg: "row" }}
         w="full"
         pt="40px"
-        gap="350px"
+        gap={{ base: "20px", lg: "350px" }}
       >
         <Image
           src="/assets/about-illustration.svg"

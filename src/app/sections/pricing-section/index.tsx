@@ -56,24 +56,28 @@ const PricingSection: React.FC = () => {
     <Flex
       id="pricing-section"
       flexDir="column"
-      pt="50px"
-      gap="50px"
+      pt={{ base: "350px", md: "50px", lg: "150px" }}
+      gap={{ base: "30px", lg: "50px" }}
       w="full"
-      minH="100vh"
       alignItems="center"
     >
       <TitleHeading title="Pricing" />
-      <Flex flexDir={{ base: "column", md: "row" }} gap="10px">
+      <Flex
+        flexDir={{ base: "column", lg: "row" }}
+        gap="10px"
+        w="full"
+        justifyContent="center"
+      >
         {DATA_TIER.map((tier) => (
           <Flex
             key={tier.id}
             flexDir="column"
-            w="300px"
+            w={{ base: "full", lg: "300px" }}
             gap="20px"
             h="fit-content"
             border="2px solid"
             p="20px"
-            mt={tier.id !== 2 ? "70px" : "0px"}
+            mt={{ base: "0px", lg: tier.id !== 2 ? "70px" : "0px" }}
             borderRadius="10px"
             bg={tier.id === 2 ? "#14BCFB" : "transparent"}
             color={tier.id === 2 ? "white" : "black"}
