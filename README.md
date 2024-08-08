@@ -12,7 +12,7 @@ This project is built using the following technologies:
 
 ### Chakra UI
 
-<strong>Reason: </strong> Agar lebih cepat dalam pengerjaan karena harus membagi waktu kedalam 3 project
+<strong>Reason: </strong> Agar lebih cepat dalam pengerjaan karena didalam deadline yang singkat dan juga harus dapat membagi waktu dengan waktu fulltime
 
 ## Getting Started
 
