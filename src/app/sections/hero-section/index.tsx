@@ -7,15 +7,18 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { scrollDown } from "@kedachallange/app/helper/scroll-down";
 import React from "react";
 
 const HeroSection: React.FC = () => {
   return (
     <Flex
-      flexDir={{ base: "column", md: "row" }}
+      alignItems={{ base: "center", lg: "start" }}
+      flexDir={{ base: "column", md: "column-reverse", lg: "row" }}
       w="full"
-      py="150px"
+      py={{ base: "100px", lg: "150px" }}
       transition="all 1000 fade"
+      gap={{ base: "0px", md: "20px" }}
     >
       <VStack w="full" align="left" justify="center" px={{ base: 4, md: 8 }}>
         <Stack maxW="2xl" align="flex-start" spacing={6}>
@@ -27,8 +30,14 @@ const HeroSection: React.FC = () => {
           </ScaleFade>
 
           <ScaleFade in={true} initialScale={0.9}>
-            <Button size="lg" variant="solid" bg="#14BCFB" color="white">
-              Let&apos;s Explore Us !
+            <Button
+              size="lg"
+              variant="solid"
+              bg="#14BCFB"
+              color="white"
+              onClick={() => scrollDown("#pricing-section")}
+            >
+              Let&apos;s Collaborate !
             </Button>
           </ScaleFade>
         </Stack>

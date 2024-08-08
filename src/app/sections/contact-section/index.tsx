@@ -15,10 +15,21 @@ const ContactSection: React.FC = () => {
   const headingSize = useBreakpointValue({ base: "lg", md: "xl" });
 
   return (
-    <Box as="section" id="contact" py={10} bg="gray.50" mx="-100px">
-      <Container maxW="container.lg">
+    <Box
+      as="section"
+      id="contact"
+      py={{ base: "40px", md: 10 }}
+      mt={{ base: "40px", md: "50px" }}
+      mx={{ base: "0px", lg: "-100px" }}
+      bg="gray.50"
+    >
+      <Container maxW={{ base: "container.md", md: "container.lg" }}>
         <VStack spacing={6} align="start">
-          <Heading as="h2" size={headingSize}>
+          <Heading
+            as="h2"
+            size={headingSize}
+            textAlign={{ base: "center", md: "left" }}
+          >
             Contact Us
           </Heading>
           <Box w="full">
@@ -36,7 +47,12 @@ const ContactSection: React.FC = () => {
                   <FormLabel>Message</FormLabel>
                   <Textarea placeholder="Your Message" rows={6} />
                 </FormControl>
-                <Button bg="#14BCFB" color="white" type="submit">
+                <Button
+                  bg="#14BCFB"
+                  color="white"
+                  type="submit"
+                  width={{ base: "full", sm: "auto" }}
+                >
                   Send Message
                 </Button>
               </VStack>
