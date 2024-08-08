@@ -12,10 +12,10 @@ import React from "react";
 const HeroSection: React.FC = () => {
   return (
     <Flex
+      flexDir={{ base: "column", md: "row" }}
       w="full"
       py="150px"
       transition="all 1000 fade"
-      backgroundPosition="right center"
     >
       <VStack w="full" align="left" justify="center" px={{ base: 4, md: 8 }}>
         <Stack maxW="2xl" align="flex-start" spacing={6}>
