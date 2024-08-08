@@ -37,6 +37,9 @@ const Navbar: React.FC = () => {
             {item.title}
           </Button>
         ))}
+        <Button variant="outline" borderColor="#14BCFB" color="#14BCFB">
+          Login
+        </Button>
       </Flex>
     </Flex>
   );

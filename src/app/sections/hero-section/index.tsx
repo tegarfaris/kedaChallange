@@ -1,4 +1,12 @@
-import { Button, Flex, ScaleFade, Stack, Text, VStack } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Image,
+  ScaleFade,
+  Stack,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import React from "react";
 
 const HeroSection: React.FC = () => {
@@ -19,24 +27,19 @@ const HeroSection: React.FC = () => {
           </ScaleFade>
 
           <ScaleFade in={true} initialScale={0.9}>
-            <Text
-              fontWeight="normal"
-              fontSize="16px"
-              lineHeight="29px"
-              letterSpacing="-0.01em"
-              textAlign="left"
-            >
-              Your solution is here
-            </Text>
-          </ScaleFade>
-
-          <ScaleFade in={true} initialScale={0.9}>
-            <Button size="lg" colorScheme="wool-primary">
+            <Button size="lg" variant="solid" bg="#14BCFB" color="white">
               Let&apos;s Explore Us !
             </Button>
           </ScaleFade>
         </Stack>
       </VStack>
+
+      <Image
+        src="/assets/hero-illustration.svg"
+        w="500px"
+        h="350px"
+        alt="asset-hero"
+      />
     </Flex>
   );
 };
