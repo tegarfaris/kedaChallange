@@ -6,7 +6,7 @@ This project is built using the following technologies:
 
 ### React
 
-### Next.js
+### Next.js + Typescript
 
 <strong>Reason: </strong> lebih mudah dalam mengatur route karena sudah ada File-based routing.
 
