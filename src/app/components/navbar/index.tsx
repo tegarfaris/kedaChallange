@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
       boxShadow={isScrolled ? "lg" : "none"}
       transition="background-color 0.3s, box-shadow 0.3s"
       p="10px 20px"
-      zIndex={1000} // Pastikan elemen ini berada di atas elemen lain
+      zIndex={1000}
     >
       <Box pos="relative">
         <Text
