@@ -32,9 +32,13 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
       </Head>
 
       <ChakraProvider>
-        <Layout>
+        {!Component.getLayout ? (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        ) : (
           <Component {...pageProps} />
-        </Layout>
+        )}
       </ChakraProvider>
     </>
   );
