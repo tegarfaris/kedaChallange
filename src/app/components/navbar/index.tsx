@@ -1,12 +1,12 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import { title } from "process";
+import { scrollDown } from "@kedachallange/app/helper/scroll-down";
 import React from "react";
 
 const MENU = [
   {
     id: 1,
     title: "About",
-    path: "#about",
+    path: "#about-section",
   },
   {
     id: 2,
@@ -50,6 +50,7 @@ const Navbar: React.FC = () => {
             key={item.id}
             variant="ghost"
             _hover={{ bg: "#14BCFB", color: "white" }}
+            onClick={() => scrollDown(item.path)}
           >
             {item.title}
           </Button>

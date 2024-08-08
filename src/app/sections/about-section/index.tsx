@@ -35,7 +35,14 @@ const steps = [
 
 const AboutSection: React.FC = () => {
   return (
-    <Flex flexDir="column" w="full" pt="50px" minH="100vh" alignItems="center">
+    <Flex
+      id="about-section"
+      flexDir="column"
+      w="full"
+      pt="50px"
+      minH="100vh"
+      alignItems="center"
+    >
       <TitleHeading title="About ERP" />
 
       <Flex
