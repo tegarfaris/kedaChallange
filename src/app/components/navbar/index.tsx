@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { scrollDown } from "@kedachallange/app/helper/scroll-down";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const MENU = [
   {
@@ -11,7 +11,7 @@ const MENU = [
   {
     id: 2,
     title: "Pricing",
-    path: "#pricing",
+    path: "#pricing-section",
   },
   {
     id: 3,
@@ -21,8 +21,37 @@ const MENU = [
 ];
 
 const Navbar: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <Flex justifyContent="space-between">
+    <Flex
+      justifyContent="space-between"
+      position="fixed"
+      top={0}
+      left={0}
+      width="100%"
+      bg={isScrolled ? "white" : "transparent"}
+      boxShadow={isScrolled ? "lg" : "none"}
+      transition="background-color 0.3s, box-shadow 0.3s"
+      p="10px 20px"
+      zIndex={1000} // Pastikan elemen ini berada di atas elemen lain
+    >
       <Box pos="relative">
         <Text
           fontWeight={600}
