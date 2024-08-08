@@ -1,4 +1,4 @@
-# Project Name
+# KENDA CHALLANGE - TEGAR FARIS N
 
 ## Tech Stack
 
