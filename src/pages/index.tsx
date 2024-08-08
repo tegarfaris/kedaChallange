@@ -4,8 +4,9 @@ import ContactSection from "@kedachallange/app/sections/contact-section";
 import HeroSection from "@kedachallange/app/sections/hero-section";
 import PricingSection from "@kedachallange/app/sections/pricing-section";
 import { NextPage } from "next";
+import { NextPageWithLayout } from "./_app";
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   return (
     <Flex flexDir="column" w="full" flexGrow={1}>
       <HeroSection />

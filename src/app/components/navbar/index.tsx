@@ -1,5 +1,7 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { NAVIGATION } from "@kedachallange/app/config/navigation";
 import { scrollDown } from "@kedachallange/app/helper/scroll-down";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 const MENU = [
@@ -21,6 +23,7 @@ const MENU = [
 ];
 
 const Navbar: React.FC = () => {
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -84,7 +87,12 @@ const Navbar: React.FC = () => {
             {item.title}
           </Button>
         ))}
-        <Button variant="outline" borderColor="#14BCFB" color="#14BCFB">
+        <Button
+          variant="outline"
+          borderColor="#14BCFB"
+          color="#14BCFB"
+          onClick={() => router.push(NAVIGATION.AUTH.LOGIN)}
+        >
           Login
         </Button>
       </Flex>

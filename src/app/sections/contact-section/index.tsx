@@ -36,7 +36,7 @@ const ContactSection: React.FC = () => {
                   <FormLabel>Message</FormLabel>
                   <Textarea placeholder="Your Message" rows={6} />
                 </FormControl>
-                <Button colorScheme="teal" type="submit">
+                <Button bg="#14BCFB" color="white" type="submit">
                   Send Message
                 </Button>
               </VStack>
