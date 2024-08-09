@@ -73,6 +73,8 @@ const Navbar: React.FC = () => {
           fontSize="18px"
           zIndex={20}
           color="white"
+          onClick={() => scrollDown("#home")}
+          cursor="pointer"
         >
           Home
         </Text>

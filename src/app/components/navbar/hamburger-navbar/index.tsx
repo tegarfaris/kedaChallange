@@ -44,7 +44,11 @@ const HamburgerNavbar: React.FC<HamburgerNavbarProps> = ({
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            <Text fontWeight={600} color="#14BCFB">
+            <Text
+              fontWeight={600}
+              color="#14BCFB"
+              onClick={() => scrollDown("#home")}
+            >
               Home
             </Text>
           </DrawerHeader>
