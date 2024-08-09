@@ -3,23 +3,16 @@ import {
   Button,
   Flex,
   Text,
-  IconButton,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  DrawerHeader,
-  DrawerBody,
   useDisclosure,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
-import { HiMenu } from "react-icons/hi";
+import { useEffect, useState } from "react";
 import { NAVIGATION } from "@kedachallange/app/config/navigation";
 import { scrollDown } from "@kedachallange/app/helper/scroll-down";
+import HamburgerNavbar from "./hamburger-navbar";
 
-const MENU = [
+export const MENU = [
   {
     id: 1,
     title: "About",
@@ -37,7 +30,7 @@ const MENU = [
   },
 ];
 
-const Navbar: FC = () => {
+const Navbar: React.FC = () => {
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isMobile = useBreakpointValue({ base: true, md: false });
@@ -95,56 +88,7 @@ const Navbar: FC = () => {
       </Box>
 
       {isMobile ? (
-        <>
-          <IconButton
-            icon={<HiMenu />}
-            aria-label="Open menu"
-            onClick={onOpen}
-            variant="outline"
-            borderColor="#14BCFB"
-            color="#14BCFB"
-          />
-          <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-            <DrawerOverlay />
-            <DrawerContent>
-              <DrawerCloseButton />
-              <DrawerHeader>
-                <Text fontWeight={600} color="#14BCFB">
-                  Home
-                </Text>
-              </DrawerHeader>
-              <DrawerBody>
-                <Flex direction="column" gap="4">
-                  {MENU.map((item) => (
-                    <Button
-                      key={item.id}
-                      variant="ghost"
-                      w="full"
-                      onClick={() => {
-                        scrollDown(item.path);
-                        onClose();
-                      }}
-                    >
-                      {item.title}
-                    </Button>
-                  ))}
-                  <Button
-                    variant="outline"
-                    borderColor="#14BCFB"
-                    color="#14BCFB"
-                    w="full"
-                    onClick={() => {
-                      router.push(NAVIGATION.AUTH.LOGIN);
-                      onClose();
-                    }}
-                  >
-                    Login
-                  </Button>
-                </Flex>
-              </DrawerBody>
-            </DrawerContent>
-          </Drawer>
-        </>
+        <HamburgerNavbar onOpen={onOpen} isOpen={isOpen} onClose={onClose} />
       ) : (
         <Flex gap="10px">
           {MENU.map((item) => (
