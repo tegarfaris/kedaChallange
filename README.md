@@ -25,4 +25,11 @@ This project is built using the following technologies:
 
 1. Clone the repository
 2. intall depedencies using `npm i`
-3. run by typing `npm run dev`
+
+### How to Run
+- local env
+1. `npnm run dev` or `yarn dev`
+
+- Prod env
+1. `npm run build`
+2. `npm start`
