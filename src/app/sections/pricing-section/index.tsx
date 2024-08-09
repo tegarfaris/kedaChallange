@@ -81,7 +81,10 @@ const PricingSection: React.FC = () => {
             borderRadius="10px"
             bg={tier.id === 2 ? "#14BCFB" : "transparent"}
             color={tier.id === 2 ? "white" : "black"}
-            _hover={{ borderColor: tier.id !== 2 && "#14BCFB" }}
+            _hover={{
+              borderColor: tier.id !== 2 && "#14BCFB",
+              cursor: "pointer",
+            }}
           >
             <Badge
               display={tier.id === 2 ? "flex" : "none"}

@@ -8,45 +8,12 @@ import {
   Input,
   Stack,
   useBreakpointValue,
-  useToast,
 } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import { FC, useRef } from "react";
+import useLogin from "@kedachallange/app/hooks/function/useLogin";
 
-const LoginPage: FC = () => {
-  const router = useRouter();
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const toast = useToast();
+const LoginPage: React.FC = () => {
+  const { emailRef, passwordRef, handleSubmit } = useLogin();
   const headingSize = useBreakpointValue({ base: "lg", md: "xl" });
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const email = emailRef.current?.value;
-    const password = passwordRef.current?.value;
-
-    if (email === "admin@gmail" && password === "admin123") {
-      toast({
-        title: "Login successful.",
-        description: "You've logged in successfully.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-        position: "top",
-      });
-      router.push("/");
-    } else {
-      toast({
-        title: "Login failed.",
-        description: "Invalid email or password.",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-        position: "top",
-      });
-    }
-  };
 
   return (
     <Box

@@ -4,7 +4,15 @@ import Navbar from "../components/navbar";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <Flex flexDir="column" w="full" minH="100vh" pl="40px" pr="60px" py="20px">
+    <Flex
+      flexDir="column"
+      w="full"
+      minH="100vh"
+      pl="70px"
+      pr="80px"
+      py="20px"
+      alignItems="center"
+    >
       <Navbar />
       <Flex>{children}</Flex>
     </Flex>

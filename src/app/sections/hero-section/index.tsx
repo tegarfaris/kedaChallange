@@ -13,6 +13,7 @@ import React from "react";
 const HeroSection: React.FC = () => {
   return (
     <Flex
+      id="home"
       alignItems={{ base: "center", lg: "start" }}
       flexDir={{ base: "column", md: "column-reverse", lg: "row" }}
       w="full"
